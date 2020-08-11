@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-    has_many :client
+    has_secure_password
+    has_many :clients
 end
