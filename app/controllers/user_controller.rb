@@ -13,7 +13,8 @@ class UserController < ApplicationController
             email: params[:email],
             password: params[:password]
         )
-        session[:user_id]
+        session[:user_id] = @user.id
+        binding.pry
         redirect "/users/#{@user.id}"
     end
 
@@ -23,6 +24,7 @@ class UserController < ApplicationController
     end 
 
     #Logs user in/session, Authenticate user
-
+    post '/users/login' do 
+    end 
 
 end
