@@ -1,1 +1,32 @@
+<!DOCTYPE html>
 <h1>Insert the form to create a new instance of your model.</h1>
+
+<h1> Congratulations! You booked a new client! </h1>
+<form method="POST" action="/users/signup">
+    <label for="fname"> First Name:</label>
+    <input type="text" name="first_name">
+    <br>
+    <label for="lname"> Last Name:</label>
+    <input type="text" name="last_name">
+    <br>
+    <label for="description"> Design Description:</label>
+    <input type="text" name="design_description">
+    <br>
+    <label for="location"> Design Location: </label>
+    <input type="text" name="location">
+    <br>
+    <label for="price"> Quoted Price:</label>
+    <input type="integer" name="price">
+    <br>
+    <label for="appt_date"> Appointment Date:</label>
+    <input type="date" name="appt_date">
+    <br>
+    <label for="appt_time"> Appointment Time:</label>
+    <input type="time" name="appt_time">
+    <br>
+    <label for="phone_number"> Phone Number:</label>
+    <input type="integer" name="phone_number">
+    <br>
+   
+    <input type="submit" value="Add Client">
+</form>
