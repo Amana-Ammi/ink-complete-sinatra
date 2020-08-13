@@ -1,3 +1,4 @@
-<%# <%Welcome, @user.name%>
+<h1> Welcome, <%= @user.name %> </h1>
 
-This is the personal user show page
+<a href="/users/<%=@user.id%>/logout">Logout</a>
+
