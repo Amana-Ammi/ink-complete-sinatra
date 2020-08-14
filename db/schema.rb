@@ -15,12 +15,11 @@ ActiveRecord::Schema.define(version: 2020_08_11_194730) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.text "design_description"
+    t.text "description"
     t.string "location"
     t.integer "price"
     t.date "appt_date"
     t.time "appt_time"
-    t.integer "phone_number"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
