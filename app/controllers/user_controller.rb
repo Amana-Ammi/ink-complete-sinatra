@@ -39,17 +39,15 @@ class UserController < ApplicationController
     post '/users/login' do 
         
         @user = User.find_by(email: params[:email])
-
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect "/users/#{@user.id}"
         else
             redirect '/users/login'
         end
-        
     end 
 
-    #The user's personal show page
+        # The user's personal show page
     get '/users/:id' do 
         @user = User.find(params[:id])
         erb :'/users/show'
@@ -60,6 +58,8 @@ class UserController < ApplicationController
         session.clear
         redirect '/'
     end
+
+
 
 
 end
