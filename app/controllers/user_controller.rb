@@ -23,21 +23,21 @@ class UserController < ApplicationController
     end
 
     #Renders login form
-    get '/users/login' do 
+    get '/users/login' do
         #check if user is logged in.
         #If they are, don't show login page. show user homepage
         #else show login screen 
-       if logged_in?
+        if logged_in?
             @user = User.find(session[:user_id])
             redirect "/users/#{@user.id}"
        else
             erb :'users/login'
        end
-    end 
+    end
 
     #Logs user in/session, Authenticate user
-    post '/users/login' do 
-        
+    post '/users/login' do
+
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
@@ -45,7 +45,7 @@ class UserController < ApplicationController
         else
             redirect '/users/login'
         end
-    end 
+    end
 
         # The user's personal show page
     get '/users/:id' do 
