@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<%@clients.each do |client|%>
+
+Name: <%= client.first_name%>
+      <%= client.last_name%>
+Design Description: <% client.design_description%>
+Location: <% client.location%>
+Price: $<% client.price%>
+Appointment Date & Time <% client.appt_date%>
+        <% client.appt_time%>
+
+<%end%>
