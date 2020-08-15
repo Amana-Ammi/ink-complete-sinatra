@@ -4,10 +4,9 @@
 
 Name: <%= client.first_name%>
       <%= client.last_name%>
-Design Description: <% client.description%>
-Location: <% client.location%>
-Price: $<% client.price%>
-Appointment Date & Time <% client.appt_date%>
-        <% client.appt_time%>
-
+Design Description: <%= client.description%>
+Location: <%= client.location%>
+Price: $<%= client.price%>
+Appointment Date: <%= client.appt_date%>
+        
 <%end%>

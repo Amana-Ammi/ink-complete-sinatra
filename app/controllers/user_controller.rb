@@ -49,7 +49,7 @@ class UserController < ApplicationController
 
         # The user's personal show page
     get '/users/:id' do 
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
         erb :'/users/show'
     end
 

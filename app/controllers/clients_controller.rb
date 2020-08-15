@@ -17,7 +17,6 @@ class ClientsController < ApplicationController
             location: params[:location],
             price: params[:price],
             appt_date: params[:appt_date],
-            appt_time: params[:appt_time],
             user_id: current_user.id
             )
             redirect "/clients/#{@client.id}"

@@ -7,7 +7,6 @@ class CreateClients < ActiveRecord::Migration[5.2]
       t.string :location
       t.integer :price
       t.date :appt_date
-      t.time :appt_time 
       t.belongs_to :user
       t.timestamps null: false
     end
