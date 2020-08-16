@@ -5,7 +5,11 @@ Name: <%= @client.first_name%>
 Design Description: <%= @client.description%><br>
 Location: <%= @client.location%><br>
 Price: $<%= @client.price%><br>
-Appointment Date: <%= @client.appt_date%>
+Appointment Date: <%= @client.appt_date%><br><br>
         
 
+        
+        <a href="/clients/<%= @client.id %>/edit"> Edit Client Info </a><br><br>
+        
+Delete Link Here
 

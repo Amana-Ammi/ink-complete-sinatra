@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<h1> The Only Constant In Life Is Change</h1> <P> - HERACLITUS</p>
+
+<form method="POST" action="/clients/<%= @client.id %>">
+<input type="hidden" name="_method" value="patch">
+
+    First Name: <input type="text" name="first_name" value="<%= @client.first_name %>">
+    <br>
+    Last Name: <input type="text" name="last_name" value="<%= @client.last_name %>">
+    <br>
+    Design Description: <input type="text" name="description" value="<%= @client.description %>">
+    <br>
+    Design Location: <input type="text" name="location" value="<%= @client.location %>">
+    <br>
+    Quoted Price: $<input type="number" name="price" value="<%= @client.price %>">
+    <br>
+    Appointment Date: <input type="date" name="appt_date" value="<%= @client.appt_date %>">
+    <br>
+   
+    <input type="submit" value="Edit Client">

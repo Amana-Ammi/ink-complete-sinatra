@@ -26,13 +26,37 @@ class ClientsController < ApplicationController
     end
 
     get '/clients/:id' do 
-        @client = Client.find(params[:id])
+        find_client
         erb :'/clients/show'
     end
 
-    post '/clients' do 
-        @clients = Client.all
-        erb :'/clients/index'
+    get '/clients/:id/edit' do
+        find_client
+        erb :'/clients/edit'
+      end
+
+      
+    patch '/clients/:id' do
+        #Find journal entry
+        find_client
+        #ActiveRecord Method of update
+        @client.update(
+            first_name: params[:first_name],
+            last_name: params[:last_name],
+            description: params[:description],
+            location: params[:location],
+            price: params[:price],
+            appt_date: params[:appt_date],
+        )
+        redirect "/clients/#{@client.id}"
+        #modify (update) journal entry
+        #redirect somewhere. Show page
     end
+
+    private  
+
+    def find_client
+        @client = Client.find(params[:id])
+    end        
 
 end
