@@ -27,18 +27,35 @@ class ClientsController < ApplicationController
 
     get '/clients/:id' do 
         find_client
-        erb :'/clients/show'
+        if logged_in?
+            if @client.user == current_user
+                erb :'/clients/show'
+            else
+                redirect "/users/#{current_user.id}"
+            end
+        else
+            redirect '/'
+        end
     end
 
     get '/clients/:id/edit' do
         find_client
-        erb :'/clients/edit'
-      end
+        if logged_in?
+            if @client.user == current_user
+            erb :'/clients/edit'
+            else
+                redirect "/users/#{current_user.id}"
+            end
+        else
+            redirect '/'
+        end
+    end
 
       
     patch '/clients/:id' do
-        #Find journal entry
+        #Find client
         find_client
+        #modify (update) client
         #ActiveRecord Method of update
         @client.update(
             first_name: params[:first_name],
@@ -49,8 +66,7 @@ class ClientsController < ApplicationController
             appt_date: params[:appt_date],
         )
         redirect "/clients/#{@client.id}"
-        #modify (update) journal entry
-        #redirect somewhere. Show page
+        
     end
 
     private  

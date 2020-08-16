@@ -50,7 +50,16 @@ class UserController < ApplicationController
         # The user's personal show page
     get '/users/:id' do 
         @user = User.find_by(id: params[:id])
-        erb :'/users/show'
+        if logged_in?
+            if @user.id == current_user.id
+            erb :'/users/show'
+            else
+                redirect "/users/#{current_user.id}"
+            end
+        else
+            redirect
+            erb :'/'
+        end
     end
 
     get '/users/:id/logout' do 
