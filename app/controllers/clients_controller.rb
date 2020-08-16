@@ -51,7 +51,6 @@ class ClientsController < ApplicationController
         end
     end
 
-      
     patch '/clients/:id' do
         #Find client
         find_client
@@ -66,7 +65,11 @@ class ClientsController < ApplicationController
             appt_date: params[:appt_date],
         )
         redirect "/clients/#{@client.id}"
-        
+    end
+ 
+    get '/clients' do
+        @clients = Client.all
+        erb :'/clients/index'
     end
 
     private  

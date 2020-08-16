@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<%@clients.each do |client|%>
+<% @clients.each do |client| %>
 
-Name: <%= client.first_name%>
-      <%= client.last_name%>
-Design Description: <%= client.description%>
-Location: <%= client.location%>
-Price: $<%= client.price%>
-Appointment Date: <%= client.appt_date%>
+<h3><%= client.first_name%>
+      <%= client.last_name%></h3>
+<p>Design Description: <%= client.description%><br>
+Location: <%= client.location%><br>
+Price: $<%= client.price%><br>
+Appointment Date: <%= client.appt_date%></p>
         
-<%end%>
+<% end %>
