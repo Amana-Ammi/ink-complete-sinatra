@@ -72,6 +72,17 @@ class ClientsController < ApplicationController
         erb :'/clients/index'
     end
 
+    delete '/clients/:id' do 
+        find_client
+        if authorized?(@client)
+            @client.destroy
+            redirect '/clients'
+        else
+            #user show page
+            redirect "/users/#{current_user.id}"
+        end
+    end
+
     private  
 
     def find_client

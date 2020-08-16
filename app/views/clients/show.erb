@@ -9,7 +9,11 @@ Appointment Date: <%= @client.appt_date%><br><br>
         
 
         
-        <a href="/clients/<%= @client.id %>/edit"> Edit Client Info </a><br><br>
+      <a href="/clients/<%= @client.id %>/edit"> Edit Client Info </a><br><br>
         
-Delete Link Here
+      
 
+            <form method="POST" action="/clients/<%= @client.id %>" >
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Remove Client">
+      </form>
