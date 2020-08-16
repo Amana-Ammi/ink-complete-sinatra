@@ -8,12 +8,8 @@ Price: $<%= @client.price%><br>
 Appointment Date: <%= @client.appt_date%><br><br>
         
 
-        
-      <a href="/clients/<%= @client.id %>/edit"> Edit Client Info </a><br><br>
-        
-      
-
-            <form method="POST" action="/clients/<%= @client.id %>" >
+      <a href="/clients/<%= @client.id %>/edit"> Edit Client Info </a><br><br>   
+      <form method="POST" action="/clients/<%= @client.id %>" >
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="Remove Client">
       </form>

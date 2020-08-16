@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
         erb :'/clients/new'
     end
 
+    #Prevent Bad Data
     post '/clients/new' do 
         if !logged_in?
             redirect '/'
@@ -56,6 +57,7 @@ class ClientsController < ApplicationController
         find_client
         #modify (update) client
         #ActiveRecord Method of update
+        ###Can edit with Bad Data!!
         @client.update(
             first_name: params[:first_name],
             last_name: params[:last_name],
