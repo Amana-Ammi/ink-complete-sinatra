@@ -6,7 +6,7 @@
   }
 
   html {
-    background-image:linear-gradient(rgb(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/pexels-cottonbro.jpg); no-repeat center center fixed;  
+    background-image:linear-gradient(rgb(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/pexels-cottonbro.jpg); 
     height: 85vh;
     background-size: cover;
     background-position: center;
