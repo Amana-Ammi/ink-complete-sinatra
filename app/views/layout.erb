@@ -1,12 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-
+<head>
     <title>Ink Complete!</title>
 
     <link rel="stylesheet" href="/stylesheets/new.css" />
@@ -22,17 +15,23 @@
         </ul>
       </div>
       <div class="title">
-      <h1> !NK COMPLETE </h1>
+        <h1> !NK COMPLETE </h1>
+        <div>
+          <% if !logged_in?%>
+            <a href="/users/signup">SIGN UP HERE</a>
+            <a href="/users/login">LOGIN HERE</a>
+          <%end%>
+        </div>
       </div>
     </header>
-    <div class="wrapper">
+  <div class="wrapper">
 
-        <%= yield %>
+      <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>!NK COMPLETE</strong></small>
       </footer>
-    </div>
+  </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
