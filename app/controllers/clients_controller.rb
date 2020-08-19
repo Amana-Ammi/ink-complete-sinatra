@@ -2,7 +2,11 @@ class ClientsController < ApplicationController
 
     #create a client
     get '/clients/new' do 
-        erb :'/clients/new'
+        if logged_in?
+            erb :'/clients/new'
+        else
+            erb :welcome
+        end
     end
 
     #Prevent Bad Data
@@ -10,19 +14,20 @@ class ClientsController < ApplicationController
         if !logged_in?
             redirect '/'
         end
-        if params != ""
-            @client = Client.create(
-            first_name: params[:first_name],
-            last_name: params[:last_name],
-            description: params[:description],
-            location: params[:location],
-            price: params[:price],
-            appt_date: params[:appt_date],
-            user_id: current_user.id
-            )
-            redirect "/clients/#{@client.id}"
-        else
+        if params == ""
             redirect '/clients/new'
+        else
+            @client = Client.create(
+                first_name: params[:first_name],
+                last_name: params[:last_name],
+                description: params[:description],
+                location: params[:location],
+                price: params[:price],
+                appt_date: params[:appt_date],
+                user_id: current_user.id
+                )
+            redirect "/clients/#{@client.id}"
+
         end
     end
 
@@ -53,25 +58,31 @@ class ClientsController < ApplicationController
     end
 
     patch '/clients/:id' do
-        #Find client
         find_client
-        #modify (update) client
+    #can edit with bad data :/
         #ActiveRecord Method of update
-        ###Can edit with Bad Data!!
-        @client.update(
-            first_name: params[:first_name],
-            last_name: params[:last_name],
-            description: params[:description],
-            location: params[:location],
-            price: params[:price],
-            appt_date: params[:appt_date],
-        )
-        redirect "/clients/#{@client.id}"
+        if params != ""
+            @client.update(
+                first_name: params[:first_name],
+                last_name: params[:last_name],
+                description: params[:description],
+                location: params[:location],
+                price: params[:price],
+                appt_date: params[:appt_date],
+            )
+            redirect "/clients/#{@client.id}"
+        else
+            redirect "/clients"
+        end
     end
  
     get '/clients' do
-        @clients = Client.all
-        erb :'/clients/index'
+        if logged_in?
+            @clients = Client.all
+            erb :'/clients/index'
+        else
+            erb :welcome
+        end
     end
 
     delete '/clients/:id' do 

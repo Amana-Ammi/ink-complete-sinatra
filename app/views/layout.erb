@@ -9,10 +9,10 @@
       <div class="main">
         <ul>
         <% if logged_in?%>
-          <li><a href="/">Home</a></li>
+          <li><a href="/users/<%=current_user.id%>">Home</a></li>
           <li><a href="/clients">View Clients</a></li>
           <li><a href="/clients/new">Add A Client</a></li>
-          <li><a href="/users/:id/logout">Logout</a></li>
+          <li><a href="/users/<%=current_user.id%>/logout">Logout</a></li>
           <%end%>
         </ul>
       </div>
