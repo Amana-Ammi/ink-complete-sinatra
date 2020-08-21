@@ -22,11 +22,7 @@ class UserController < ApplicationController
         end
     end
 
-    #Renders login form
     get '/users/login' do
-        #check if user is logged in.
-        #If they are, don't show login page. show user homepage
-        #else show login screen 
         if logged_in?
             @user = User.find(session[:user_id])
             redirect "/users/#{@user.id}"
@@ -35,7 +31,6 @@ class UserController < ApplicationController
        end
     end
 
-    #Logs user in/session, Authenticate user
     post '/users/login' do
 
         @user = User.find_by(email: params[:email])
@@ -63,12 +58,9 @@ class UserController < ApplicationController
     end
 
     get '/users/:id/logout' do 
-        #Need to use this route to make it into a button
         session.clear
         redirect '/'
     end
-
-
 
 
 end

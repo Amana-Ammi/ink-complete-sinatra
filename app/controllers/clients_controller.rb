@@ -1,6 +1,5 @@
 class ClientsController < ApplicationController
 
-    #create a client
     get '/clients/new' do 
         if logged_in?
             erb :'/clients/new'
@@ -9,7 +8,6 @@ class ClientsController < ApplicationController
         end
     end
 
-    #Prevent Bad Data
     post '/clients/new' do 
         if !logged_in?
             redirect '/'
@@ -59,9 +57,9 @@ class ClientsController < ApplicationController
 
     patch '/clients/:id' do
         find_client
-    #can edit with bad data :/
-        #ActiveRecord Method of update
-        if params != ""
+        if params[:first_name] == ""
+            redirect "/clients"
+        else
             @client.update(
                 first_name: params[:first_name],
                 last_name: params[:last_name],
@@ -71,8 +69,6 @@ class ClientsController < ApplicationController
                 appt_date: params[:appt_date],
             )
             redirect "/clients/#{@client.id}"
-        else
-            redirect "/clients"
         end
     end
  
