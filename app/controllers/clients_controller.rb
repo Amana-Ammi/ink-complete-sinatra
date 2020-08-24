@@ -24,6 +24,7 @@ class ClientsController < ApplicationController
                 appt_date: params[:appt_date],
                 user_id: current_user.id
                 )
+             @client.save
             redirect "/clients/#{@client.id}"
         end
     end
