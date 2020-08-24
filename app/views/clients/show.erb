@@ -4,6 +4,7 @@ Design Description: <%= @client.description%><br>
 Location: <%= @client.location%><br>
 Price: $<%= @client.price%><br>
 Appointment Date: <%= @client.appt_date%><br><br>
+Artist: <%= @client.user.name %>
         
 <%if authorized?(@client)%>
       <a href="/clients/<%= @client.id %>/edit"> Edit Client Info </a><br><br>   

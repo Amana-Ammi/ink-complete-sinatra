@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
         if !logged_in?
             redirect '/'
         end
-        if params == ""
+        if params[:first_name] == ""
             redirect '/clients/new'
         else
             @client = Client.create(
@@ -45,8 +45,8 @@ class ClientsController < ApplicationController
     get '/clients/:id/edit' do
         find_client
         if logged_in?
-            if @client.user == current_user
-            erb :'/clients/edit'
+            if authorized?(client)
+                erb :'/clients/edit'
             else
                 redirect "/users/#{current_user.id}"
             end

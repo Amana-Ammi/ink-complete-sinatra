@@ -8,6 +8,8 @@ class UserController < ApplicationController
     post '/users/signup' do 
         if params[:name] == "" && params[:email] == "" && params[:password] == ""
             redirect '/users/signup'
+        elsif User.find_by(email: params[:email])
+            redirect '/'
         else
             @user = User.create(
                 name: params[:name],
