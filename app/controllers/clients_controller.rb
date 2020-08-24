@@ -25,7 +25,6 @@ class ClientsController < ApplicationController
                 user_id: current_user.id
                 )
             redirect "/clients/#{@client.id}"
-
         end
     end
 

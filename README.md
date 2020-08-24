@@ -33,6 +33,8 @@ GETTING STARTED
 
     For the best user experience, please maximize your browser window.
 
+    To exit the application completely, input "ctrl + c" into your terminal.
+
 
 HOW-TO
 

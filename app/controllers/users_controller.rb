@@ -1,14 +1,11 @@
 class UserController < ApplicationController
 
-    #Renders sign up form
+   
     get '/users/signup' do 
         erb :'/users/signup'
     end 
    
-    #creates the user, logs them in/starts session,
-    #redirect to user homepage
     post '/users/signup' do 
-        #prevents user signup w/bad data
         if params[:name] == "" && params[:email] == "" && params[:password] == ""
             redirect '/users/signup'
         else
@@ -32,7 +29,6 @@ class UserController < ApplicationController
     end
 
     post '/users/login' do
-
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
@@ -42,7 +38,6 @@ class UserController < ApplicationController
         end
     end
 
-        # The user's personal show page
     get '/users/:id' do 
         @user = User.find_by(id: params[:id])
         if logged_in?
